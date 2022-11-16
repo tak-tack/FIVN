@@ -14,7 +14,7 @@ var temp = "temp";
 
 
 
-// 팝업 닫기ttttttttttad3시다asdasdasdsd
+// 팝업 닫기 3시15분이당
 function popup_close()
 {
 	        var url = 
