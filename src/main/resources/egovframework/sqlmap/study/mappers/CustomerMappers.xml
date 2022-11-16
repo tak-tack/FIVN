@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sqlmap.study.mappers.CustomerMapper">
+
+	<resultMap id="Customer" type="com.epps.study.customer.vo.CustomerVO">
+		<result property="customerCustomer_name" column="CUSTOMER_NAME"/>
+		<result property="customerCar_information_number" column="CAR_INFORMATION_NUMBER"/>
+		<result property="customerCar_number" column="CAR_NUMBER"/>	
+		<result property="customerCar_characteristic" column="CAR_CHARACTERISTIC"/>
+		<result property="customerVisit_day" column="VISIT_DAY"/>
+		<result property="customerPhone_number" column="PHONE_NUMBER"/>
+		<result property="car_production_date" column="CAR_PRODUCTION_DATE"/>	
+		<result property="car_weight" column="CAR_WEIGHT"/>
+		<result property="customer_index" column="CUSTOMER_INDEX"/>
+	</resultMap>
+	
+	
+		<select id="selectCustomer" resultMap="Customer">	
+		select
+			CUSTOMER_NAME,
+			CAR_INFORMATION_NUMBER,
+			CAR_NUMBER,
+			CAR_CHARACTERISTIC,
+			VISIT_DAY,
+			PHONE_NUMBER,
+			CAR_PRODUCTION_DATE,
+			CAR_WEIGHT,
+			CUSTOMER_INDEX,
+			MEMO
+
+		from
+			CUSTOMER
+		<where>
+			<if test= "selecttype == 'customerCustomer_name'">
+			CUSTOMER_NAME LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test= "selecttype == 'customerPhone_number'">
+			PHONE_NUMBER LIKE CONCAT('%',#{keyword},'%')
+			</if>	
+			<if test= "selecttype == 'customerCar_number'">
+			CAR_NUMBER LIKE CONCAT('%',#{keyword},'%')
+			</if>	
+			<if test= "selecttype == 'customerCar_information_number'">
+			CAR_INFORMATION_NUMBER LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test= "selecttype == 'customerCar_characteristic'">
+			CAR_CHARACTERISTIC LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test= "selecttype == 'visit_day'">
+			VISIT_DAY = #{keyword}
+			</if>
+			
+		</where>
+			order by VISIT_DAY DESC;
+	</select>
+	
+			<select id="selectCustomerList"  resultMap="Customer">	
+		select
+			CUSTOMER_NAME,
+			CAR_INFORMATION_NUMBER,
+			CAR_NUMBER,
+			CAR_CHARACTERISTIC,
+			VISIT_DAY,
+			PHONE_NUMBER,
+			CAR_PRODUCTION_DATE,
+			CAR_WEIGHT,
+			MEMO
+
+		from
+			CUSTOMER	
+			order by VISIT_DAY DESC
+			LIMIT #{recordCountPerPage} OFFSET #{firstRecordIndex}
+	</select>
+	
+		<select id="selectCustomerListCnt"  resultType="java.lang.Integer">
+		select
+			COUNT(CUSTOMER_INDEX)
+		from
+			CUSTOMER
+		<where>
+			<if test= "selecttype == 'customerCustomer_name'">
+			CUSTOMER_NAME LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test= "selecttype == 'customerPhone_number'">
+			PHONE_NUMBER LIKE CONCAT('%',#{keyword},'%')
+			</if>	
+			<if test= "selecttype == 'customerCar_number'">
+			CAR_NUMBER LIKE CONCAT('%',#{keyword},'%')
+			</if>	
+			<if test= "selecttype == 'customerCar_information_number'">
+			CAR_INFORMATION_NUMBER LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test= "selecttype == 'customerCar_characteristic'">
+			CAR_CHARACTERISTIC LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test= "selecttype == 'visit_day'">
+			VISIT_DAY = #{keyword}
+			</if>
+			
+		</where>
+			
+	</select>
+	
+		<select id="selectCustomerListCntAll"  resultType="java.lang.Integer">
+		select
+			COUNT(CUSTOMER_INDEX)
+		from
+			CUSTOMER	
+	</select>
+	
+	<select id="insertCustomer" resultMap="Customer">
+	INSERT INTO
+	CUSTOMER (
+		CUSTOMER_NAME,
+			CAR_INFORMATION_NUMBER,
+			CAR_NUMBER,
+			CAR_CHARACTERISTIC,
+			VISIT_DAY,
+			PHONE_NUMBER,
+			CAR_PRODUCTION_DATE,
+			CAR_WEIGHT,
+			MEMO
+			)
+	VALUES	(
+		#{customerCustomer_name},
+		#{customerCar_information_number},
+		#{customerCar_number},
+		#{customerCar_characteristic},
+		NOW(),
+		#{customerPhone_number},
+		#{car_production_date},
+		#{car_weight},
+		#{memo}
+			)	
+	</select>
+	
+	
+	
+	<select id="deleteCustomer" resultMap="Customer">
+	DELETE
+	FROM
+		CUSTOMER
+	WHERE
+		CUSTOMER_INDEX = #{customer_index}		
+	</select>
+
+
+
+	<select id="updateCustomer" resultMap="Customer">
+	UPDATE
+		CUSTOMER
+	SET
+	
+		CUSTOMER_NAME = #{customerCustomer_name},
+		CAR_INFORMATION_NUMBER = #{customerCar_information_number},
+		CAR_NUMBER = #{customerCar_number},
+		CAR_CHARACTERISTIC = #{customerCar_characteristic},
+		VISIT_DAY = #{customerVisit_day},
+		PHONE_NUMBER = #{customerPhone_number},
+		CAR_PRODUCTION_DATE = #{car_production_date},
+		CAR_WEIGHT = #{car_weight},
+		MEMO = #{memo}
+		
+	WHERE
+	
+		CUSTOMER_INDEX = #{customer_index}
+	
+		
+	
+	
+	</select>
+
+
+	<select id="visitday_list" resultMap="Customer">
+	SELECT
+		VISIT_DAY
+	FROM
+			CUSTOMER
+		<where>
+			CAR_INFORMATION_NUMBER = #{customerCar_information_number}
+		</where>
+		order by VISIT_DAY DESC;
+	</select>
+
+
+
+	</mapper>
