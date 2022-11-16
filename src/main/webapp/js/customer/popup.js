@@ -14,7 +14,7 @@ var temp = "temp";
 
 
 
-// 팝업 닫기asdddddd
+// 팝업 닫기tttttttttt3시다asdasdasdsd
 function popup_close()
 {
 	        var url = 
