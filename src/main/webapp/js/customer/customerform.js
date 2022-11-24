@@ -1,4 +1,4 @@
-
+/* 2022-11-22 메모 업데이트를 위한 주석
  function updatecustomer(customerCustomer_name, customerCar_information_number, customerCar_number, customerCar_characteristic, customerVisit_day, customerPhone_number, car_production_date, car_weight, memo, customer_index ,status_index){
 
 	
@@ -56,7 +56,10 @@
         }  
         
     }
+    */
     
+   
+ 
     // 고객 정보 삭제 기능
     function deletecustomer(	
 		customer_index ,

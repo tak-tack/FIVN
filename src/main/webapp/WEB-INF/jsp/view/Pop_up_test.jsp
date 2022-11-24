@@ -27,8 +27,11 @@ a{text-decoration:none;}
 <body>
 	
 	<!-- popup_start -->
+	<form id="memoForm">
 	<div class="pop_inner">
-		
+	<input type = "hidden" id = "customer_index" value ="${customer_index}">
+	<input type = "hidden" id = "memo" value ="${memo}">
+		<!-- test :${customer_index}  -->
     	<ul class="tabnav">
       		<li><a href="#tab01"  class="tab1">차종</a></li>
 	     	<li><a href="#tab02"  class="tab2">예약</a></li>
@@ -92,20 +95,26 @@ a{text-decoration:none;}
 					</c:forEach>
 				</tbody>
 		</table>
-		
+			
 		<table id="tab04" style="padding:0px; table-layout: fixed;  height: auto; !important">	 
-
+				
 				
 			 	<tr>
-					<td colspan="2"	style="height: 100px text"><div class="substance" name="update_memo">${memo}</div></td>
+			 	
+					<td colspan="2"	style="height: 100px text"><div class="substance" name="update_memo" >${memo}</div></td>
+						
 				</tr>
+				
 		</table>
 		
 			</div>
+				 
 			<div class="popup_button"></div>
 				
 			
 		</div>
+		</form>
+		
 		<!-- popup End -->
 		
 		

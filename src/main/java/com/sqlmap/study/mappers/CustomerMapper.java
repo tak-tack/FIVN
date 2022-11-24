@@ -31,6 +31,9 @@ public interface CustomerMapper {
 	CustomerVO updateCustomer(CustomerVO vo) throws Exception;
 	
 	
+	CustomerVO updateCustomerMemo(CustomerVO vo) throws Exception;
+	
+	
 	List<CustomerVO> visitday_list(CustomerVO vo) throws Exception;
 
 }

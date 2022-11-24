@@ -64,6 +64,7 @@
 			PHONE_NUMBER,
 			CAR_PRODUCTION_DATE,
 			CAR_WEIGHT,
+			CUSTOMER_INDEX,
 			MEMO
 
 		from
@@ -168,6 +169,18 @@
 		
 	
 	
+	</select>
+	
+	<select  id="updateCustomerMemo" resultMap="Customer">
+	UPDATE
+		CUSTOMER
+	SET
+	
+		MEMO = #{memo}
+		
+	WHERE
+	
+		CUSTOMER_INDEX = #{customer_index}
 	</select>
 
 

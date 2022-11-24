@@ -8,12 +8,12 @@
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         
         <!--  서버용 -->
-            <property name="url" value="jdbc:mysql://13.209.104.125:3306/DBA?verifyServerCertificate=false&amp;useSSL=true&amp;serverTimezone=UTC" />  
+             <property name="url" value="jdbc:mysql://13.209.104.125:3306/DBA?verifyServerCertificate=false&amp;useSSL=true&amp;serverTimezone=UTC" />  
           <property name="username" value="mysqluser"/>
           <property name="password" value="user123"/> 
           
         <!--  내부테스트용 -->
-        <!-- <property name="url" value="jdbc:mysql://localhost:3306/DBA?verifyServerCertificate=false&amp;useSSL=true&amp;serverTimezone=UTC" /> 
+       <!--  <property name="url" value="jdbc:mysql://localhost:3306/DBA?verifyServerCertificate=false&amp;useSSL=true&amp;serverTimezone=UTC" /> 
      	 <property name="username" value="root"/>  
          <property name="password" value="595959"/>    -->
     

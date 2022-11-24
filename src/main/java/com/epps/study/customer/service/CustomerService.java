@@ -17,6 +17,8 @@ public interface CustomerService {
 	
 	CustomerVO updateCustomer(CustomerVO customerVO) throws Exception;
 	
+	CustomerVO updateCustomerMemo(CustomerVO customerVO) throws Exception;
+	
 	List<CustomerVO> visit_list(CustomerVO customerVO)  throws Exception;
 
 	

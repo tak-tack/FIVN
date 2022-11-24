@@ -116,25 +116,13 @@ $(function(){
 	 });    
 	 
 
-   
-
-	
- $(document).on("click","button[name=update_to_form]",function() {
-
-   console.log("update_to_form");
-   
- 
-});
-
-
 var isDisabled = false;
 	var crruent_idx = 5;
 	var test;
 
 
-//  팝업 - 내용 클릭 시 업데이트
+//  팝업 - 내용 클릭 시 textarea로 전환(메모)
 $(document).on("click","div[name=update_memo]",function(){
-
 var idx = $(".substance").index(this);
 console.log("crruent_idx:"+crruent_idx);
 console.log("idx:"+idx);
@@ -143,24 +131,84 @@ console.log("idx:"+idx);
       return false;
     } else {
 
-  		//console.log("index : " +idx);
-
-		 var sub_text = $('.substance').eq(idx).text();
-		 console.log("sub_text:"+sub_text);
+  		 var sub_text = $('.substance').eq(idx).text();
+		 console.log("test:"+sub_text);
 		 var update_input = 
-		 '<div class="substance">'+
-		 '<textarea cols="50" rows="10"> '+
+
+		 '<div class="substance" >'+
+		 '<textarea cols="50" rows="10" id="memoTextarea"> '+
 		 sub_text +
 		 '</textarea>'+
 		 '</div>'
  			;
 		$('.substance').eq(idx).parent().html(update_input);
 			crruent_idx = idx;
-			//console.log("현재 idx : " + crruent_idx);
+			
 			
 
     	}
     
 });
 
+// 고객정보 업데이트를 위한 저장 버튼 (메모)
+ $(document).on("click","button[name=update_to_form]",function() {
 
+   //console.log("update_to_form");
+   //var idx = $(".substance").index(this);
+   		 //var sub_text = $('.substance').eq(idx).text();		
+   		 //var sub =  $('.substance').eq(idx);
+		 //console.log("sub_text:"+sub_text);
+		 //UpdatePopupData(sub);
+		 
+		 var formData = $('#memoForm').serialize();
+		 var customer_index_value = $('#customer_index').val();		 
+		 console.log("customer_index_value : " + customer_index_value);
+		 var memoTextValue =  $('#memoTextarea').val();
+		 console.log("memoTextValue : " + memoTextValue);
+		 $.ajax({
+         	type : "GET",
+         	url : "/updateCustomerPopup.do?customer_index="+customer_index_value+"&memo="+memoTextValue,
+         	data : formData,
+         	success : function (status)
+         	{
+            
+            	//alert(status);
+            	
+            	window.close();
+            	
+         	},
+         	error : function (status)	
+         	{
+            	alert(status + "error!");
+       		}
+     			});
+
+});
+
+
+/*
+  function UpdatePopupData(sub)
+   {
+
+		 	   console.log("업데이트팝업을위한 함수"+sub.text());  
+		 	               var url = 
+            	'/updateCustomer.do?&memo=' + sub.text();
+                //window.open(url, "_self",  '');
+                
+
+     
+     
+		 	    
+	   
+	     var url = 
+            			'/popup.do'
+            			;
+            			
+            			var options = 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no fullscreen=no';
+              
+	var popup = window.open(url, "popup",  options);
+	//popup.close();
+	
+	
+   }
+*/

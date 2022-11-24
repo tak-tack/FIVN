@@ -96,6 +96,16 @@ public class CustomerServiceImpl extends EgovAbstractServiceImpl implements Cust
 		 
 		 return customerVO;
 	 }
+
+	 @Override
+	 public CustomerVO updateCustomerMemo(CustomerVO vo) throws Exception {
+		 
+		 CustomerVO customerVO = customerMapper.updateCustomerMemo(vo);
+		 
+		 return customerVO;
+	 }
+	 
+	 
 	 @Override
 	 public List<CustomerVO> visit_list(CustomerVO customerVO) throws Exception {
 			// 방문날짜 리스트 조회

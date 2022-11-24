@@ -55,7 +55,7 @@
                 <div class="top-logo-wrap">
                     
                 </div>
-                <h1>고객 관리 시스템 11.17</h1>
+                <h1>고객 관리 시스템</h1>
                 <p></p>
             </div>
             <div class="login-form-left-side">

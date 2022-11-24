@@ -50,10 +50,6 @@ $( ".table tbody" ).on( "click", ".OpenSelectPopup" , function() {
         console.log(i +"번쨰:"+td.eq(i).text());
     });
          
-    //console.log("배열에 담긴 값 : "+tdArr);
-    
-   // var input_val = td.eq(5).text();
-     //console.log("인풋값 찾기 : " + input_val);
  console.log("OpenSelectPopup");
     	            var url = 
             			'/popup.do?customerCustomer_name='+ td.eq(0).text() +
@@ -66,7 +62,7 @@ $( ".table tbody" ).on( "click", ".OpenSelectPopup" , function() {
             			'&customer_index='+ td.eq(8).text()+
             			'&memo='+ td.eq(9).text()
             			;
-            			
+            			console.log("customer_index = "+ td.eq(8).text());
             		
             			var popupX = (window.screen.width / 2) - (800 / 2);
             			var popupY= (window.screen.height /2) - (350 / 2);

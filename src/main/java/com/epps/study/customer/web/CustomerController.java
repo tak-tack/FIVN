@@ -17,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -369,6 +370,8 @@ public class CustomerController {
     	String customerCar_information_number = request.getParameter("customerCar_information_number");
     	String customerPhone_number_1 = request.getParameter("customerPhone_number_1");
     	String customerVisit_day = request.getParameter("customerVisit_day");
+    	String customer_index = request.getParameter("customer_index");
+    	request.setAttribute("customer_index", customer_index); 
 		String memo = request.getParameter("memo"); 
     
     	String keyword = CustomerController.Keyword;
@@ -384,6 +387,7 @@ public class CustomerController {
     	System.out.println("고객 차대번호 : " + customerCar_information_number);
     	System.out.println("고객 전화번호 : " + customerPhone_number_1);
     	System.out.println("고객 방문날짜 : " + customerVisit_day);
+    	System.out.println("고객 인덱스 번호 : " + customer_index);
     	System.out.println("고객 메모 : " + memo);
     	
     	// 고객정보 출력을 위한 인스턴스화
@@ -406,27 +410,38 @@ public class CustomerController {
     	
     	
 		return "/view/customer/update/UpdateCustomer";
+		
 	}
-	/*	
+	
 	// 고객 수정 
-    // 고객 정보 수정을 위한 팝업
+    // 고객 정보 수정을 위한 팝업 2022-11-23 추가
 	@RequestMapping(value="/updateCustomerPopup.do")
-	public String updateCustomerPopup(@ModelAttribute("customerVO") CustomerVO customerVO, ModelMap model, RedirectAttributes rttr,HttpServletRequest request) throws Exception{
+	@ResponseBody  // Controller 에서 메서드 타입이 void 일 경우 사용
+	public void updateCustomerPopup(@ModelAttribute("customerVO") CustomerVO customerVO, ModelMap model, RedirectAttributes rttr,HttpServletRequest request) throws Exception{
     	try(Connection conn = dataSource.getConnection()) { // DBCP    		
     		System.out.println("DB 연결 성공 : " +conn);
+        	
     		
+    		String customer_index = request.getParameter("customer_index");
+        	request.setAttribute("customer_index", customer_index); 
+    		String memo = request.getParameter("memo"); 
+    		request.setAttribute("memo", memo); 
     		
-    		    	}catch (Exception e) {
+        	System.out.println("고객 인덱스 번호 : " + customer_index);
+        	System.out.println("고객 메모 : " + memo);
+        	
+        	 customerService.updateCustomerMemo(customerVO);
+    		
+    		 }catch (Exception e) {
     		 System.out.println(e.getMessage());
     		 System.out.println("DB 실패");
      		Connection conn = dataSource.getConnection();
      		conn.close();
     		}
     		
-		
-		return "/view/customer/update/UpdateCustomerPopup";
+
 	}
-*/
+
 	
 	
     @RequestMapping(value ="/popup.do")
@@ -452,6 +467,7 @@ public class CustomerController {
     	String car_production_date = request.getParameter("car_production_date");
     	String car_weight = request.getParameter("car_weight");
     	String customerCar_number = request.getParameter("customerCar_number");
+    	String customer_index = request.getParameter("customer_index");
     	String memo = request.getParameter("memo");
     	
     	
@@ -462,8 +478,11 @@ public class CustomerController {
     	request.setAttribute("car_production_date", car_production_date);  
     	request.setAttribute("car_weight", car_weight);  
     	request.setAttribute("customerCar_number", customerCar_number);  
+    	request.setAttribute("customer_index", customer_index); 
     	request.setAttribute("memo", memo);  
+    	 
     	System.out.println("memo : "+memo);
+    	System.out.println("customer_index : "+customer_index);
 
 
     	// 방문이력 조회용
@@ -482,7 +501,7 @@ public class CustomerController {
     
     
     }
-    
+    /*
     @RequestMapping(value ="/UpdateCustomerPopup.do")
     public String UpdateCustomerPopup(HttpServletRequest request,@ModelAttribute("customerVO") CustomerVO customerVO, ModelMap model) throws Exception{
     	
@@ -537,6 +556,7 @@ public class CustomerController {
     
     
     }
+    */
     
     
  }
