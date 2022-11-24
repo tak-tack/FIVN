@@ -101,10 +101,22 @@ a{text-decoration:none;}
 				
 			 	<tr>
 			 	
-					<td colspan="2"	style="height: 100px text"><div class="substance" name="update_memo" >${memo}</div></td>
+					<td colspan="2"	style="height: 100px text"><div class="substance" name="update_memo" >
+									<c:choose> 
+										<c:when test="${not empty memo}">
+														${memo}
+										</c:when>
+		
+										<c:otherwise>
+														메모가 없습니다.
+										</c:otherwise>
+									</c:choose>
+					
+					
+					</div></td>
 						
 				</tr>
-				
+
 		</table>
 		
 			</div>
