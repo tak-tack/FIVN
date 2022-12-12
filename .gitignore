@@ -10,3 +10,7 @@
 \src\main\resources\egovframework\spring\context-datasource.xml
 
 >>>>>>> refs/remotes/origin/master
+
+target/study-1.0.0-BUILD-SNAPSHOT/
+
+.factorypath
