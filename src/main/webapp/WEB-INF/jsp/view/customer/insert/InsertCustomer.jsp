@@ -66,10 +66,8 @@
 							
 		</table>
 							
-									<form name="testForm">
-								      <table name="tableStaff" style="margin-bottom:0rem;">
-							  			
-										</table>
+									<form name="testForm0" id="myform0">
+								      <table name="tableStaff0" id="mytable0" style="margin-bottom:0rem;" ></table>
 
 									</form>
 									

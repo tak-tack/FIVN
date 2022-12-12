@@ -60,9 +60,9 @@
             <input type="text" name="keyword" class = "searchTerm" size="10" placeholder="고객 정보를 입력해주세요..."  style = "width:400px; height: 50px;" required>
             
                    <button type="submit"  class="searchButton" value="검색">
-        			 <i class="fa fa-search">검색</i>
+        			 <img src="${_ContextPath}/images/돋보기.png" width="35" height="35">
    
-   </button>
+ 				  </button>
            </div>    
            
                    
