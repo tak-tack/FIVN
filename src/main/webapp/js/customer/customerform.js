@@ -89,11 +89,21 @@
     }
   // insert
   //고객정보를 삽입하기 위한 고객의 열 을 추가하는 기능
+ var cnt=1;
 $(document).on("click","button[name=InsertLine]",function(){
-        
+	
+ var cnt_before_1 = cnt-1;
+	console.log("mytable:"+ $('#mytable'+cnt_before_1+'').parents().attr('id'));
+	
+	var str = $('#mytable'+cnt_before_1+'').parents().attr('id');
+	if(str == "myform3")
+	{
+		console.log("test");
+	}
+         //console.log("cut : " +cut);
         var addStaffText =   
-        	//'<form name="testForm">' +
-        	'	<table name="tableStaff" class = "table table-striped" style="margin-bottom:0rem;">'+  
+        	'<form name="testForm'+cnt+'" id="myform'+cnt+'">' +
+        	'	<table name="tableStaff'+cnt+'" id="mytable'+cnt+'" class = "table table-striped" style="margin-bottom:0rem;">'+  
         	'		<tr>'+
             '   		 <td><input type="text" name="customerCustomer_name" size="10" placeholder="고객 이름..."  style = "width:100px; height: 25px;" required></td>'+
             '   		 <td><input type="text" name="customerCar_information_number" size="10" placeholder="차대 번호..."  style = "width:200px; height: 25px;" required></td>'+
@@ -105,13 +115,19 @@ $(document).on("click","button[name=InsertLine]",function(){
             '      		 <td><input type="text" name="memo" size="10" placeholder="메모..."  style = "width:200px; height: 25px;" required></td>' + 
             '			<td><button class="button button--winona button--border-thin button--round-s" style = "min-width: 40px; height: 30px" name="delLine">삭제</button></td>'+
             '		</tr>'+
-            '	</table>' //+
-          //  '</form>'
+            '	</table>' +
+            '</form>'
             ;
             
-        var trHtml = $( "table[name=tableStaff]:last" ); //last를 사용하여 trStaff라는 명을 가진 마지막 태그 호출
+            var cnt_before_2 = cnt-1;
+        var trHtml = $( "form[name=testForm"+cnt_before_2+"]:last" ); //last를 사용하여 trStaff라는 명을 가진 마지막 태그 호출
+        	
+
         
         trHtml.after(addStaffText); //마지막 trStaff명 뒤에 붙인다.
+        
+            cnt++;
+    console.log("cnt : " +cnt);
 });
 
 
@@ -129,19 +145,19 @@ $(document).on("click","button[name=InsertLine]",function(){
     
     
  $(document).on("click","button[name=insert]",function() {
-    $('form[name="testForm"]').serialize();
-    $('form[name="testForm"]').attr('method', 'POST');
-    $('form[name="testForm"]').attr('action', '/insertCustomer.do?allowMultiQueries=true');
+	console.log("cnt:" + cnt);
+	
+	for(var i=1; i<=cnt; i++)
+	{
+		    $('form[name=testForm'+i+']').serialize();
+    $('form[name=testForm'+i+']').attr('method', 'POST');
+    $('form[name=testForm'+i+']').attr('action', '/insertCustomer.do?allowMultiQueries=true');
         
-    $('form[name="testForm"]').submit();
-});
+    $('form[name=testForm'+i+']').submit();
+	}
+	
 
- $(document).on("click","button[name=insert]",function() {
-    $('form[name="testForm"]').serialize();
-    $('form[name="testForm"]').attr('method', 'POST');
-    $('form[name="testForm"]').attr('action', '/insertCustomer.do?allowMultiQueries=true');
-        
-    $('form[name="testForm"]').submit();
+
 });
 
 

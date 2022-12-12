@@ -316,14 +316,14 @@ input[type="radio"]{
   height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #0069d9;
+  /*color: #0069d9;*/
   font-weight: 600;
   
   
 }
 
 .searchTerm:focus{
-  color: #0069d9;
+  /*color: #0069d9;*/
   font-weight: 600;
 }
 

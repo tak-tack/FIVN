@@ -1,12 +1,12 @@
 package com.epps.study.main.web;
 
-import java.util.List;
-import java.io.Console;
+
 import java.sql.Connection;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.epps.study.customer.service.CustomerService;
-import com.epps.study.customer.vo.CustomerVO;
+import com.epps.study.user.vo.UserVO;
 
 
 @Controller
@@ -27,18 +27,28 @@ public class MainController {
 	private DataSource dataSource;
 	
     @RequestMapping(value = "/main.do")
-    public String main(HttpServletRequest request) throws Exception{
+    public String main(HttpServletRequest request, HttpSession session, UserVO userVO) throws Exception{
     	
+    	/*
+    	// 세션관리 추가 2022-11-24
+    	session.setAttribute("_UserInfo", userVO);
+		userVO = (UserVO)session.getAttribute("_UserInfo");
+		String username = userVO.getUsername();
+		System.out.println("session username : " +username);
+		
+			if(username == null) 
+				{
+				return "./index";
+				}
+		*/
     	
-    	try(Connection conn = dataSource.getConnection()) { // DBCP    	
+    	try(Connection conn = dataSource.getConnection()) { // DBCP   
     		
     		System.out.println("DB 연결 성공 : " +conn);    		
-    	//CustomerVO vo = new CustomerVO();   	
-    	//List<CustomerVO> value = customerService.selectCustomer(vo);   	
-    	//System.out.println("테스트"+value);    	
-    		String usrname = request.getParameter("username");
     		
-    		System.out.println("usrname : " + usrname);
+    		
+    		
+    		
     	}catch (Exception e) {
     		
     		System.out.println(e.getMessage());

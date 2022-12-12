@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.persistence.metamodel.SetAttribute;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.ModelMap;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.epps.study.customer.service.CustomerService;
 import com.epps.study.customer.vo.CustomerVO;
-
+import com.epps.study.user.vo.UserVO;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
@@ -43,7 +44,7 @@ public class CustomerController {
 	/* 고객 정보 전체 리스트 */
 	// 고객 정보 찾기
     @RequestMapping(value = "/list.do"/*, method = RequestMethod.POST*/)
-    public String customerlist( @ModelAttribute("customerVO") CustomerVO customerVO, HttpServletRequest request, ModelMap model) throws Exception{
+    public String customerlist( @ModelAttribute("customerVO") CustomerVO customerVO, HttpServletRequest request, ModelMap model, HttpSession session, UserVO userVO) throws Exception{
     	
     	try(Connection conn = dataSource.getConnection()) { // DBCP
 
@@ -69,7 +70,13 @@ public class CustomerController {
     	request.setAttribute("total", (Integer) map.get("totalRecordCount"));
     	System.out.println("고객 총합 : "+(Integer) map.get("totalRecordCount"));
     	
-    
+    	/*
+    	// 세션관리 추가 2022-11-24
+    	session.setAttribute("_UserInfo", userVO);
+		userVO = (UserVO)session.getAttribute("_UserInfo");
+		String username = userVO.getUsername();
+		System.out.println("session username : " +username);
+    */
 	}catch (Exception e) {
 		System.out.println(e.getMessage());
 		System.out.println("DB 실패");
