@@ -96,23 +96,23 @@ $(document).on("click","button[name=InsertLine]",function(){
 	console.log("mytable:"+ $('#mytable'+cnt_before_1+'').parents().attr('id'));
 	
 	var str = $('#mytable'+cnt_before_1+'').parents().attr('id');
-	if(str == "myform3")
+	if(str == "myform10")
 	{
 		console.log("test");
+		return false;
 	}
-         //console.log("cut : " +cut);
+         
         var addStaffText =   
         	'<form name="testForm'+cnt+'" id="myform'+cnt+'">' +
         	'	<table name="tableStaff'+cnt+'" id="mytable'+cnt+'" class = "table table-striped" style="margin-bottom:0rem;">'+  
         	'		<tr>'+
-            '   		 <td><input type="text" name="customerCustomer_name" size="10" placeholder="고객 이름..."  style = "width:100px; height: 25px;" required></td>'+
-            '   		 <td><input type="text" name="customerCar_information_number" size="10" placeholder="차대 번호..."  style = "width:200px; height: 25px;" required></td>'+
-            '      		 <td><input type="text" name="customerCar_number" size="10" placeholder="차량 번호..."  style = "width:100px; height: 25px;" required></td>'+
-            '      		 <td><input type="text" name="customerCar_characteristic" size="10" placeholder="차종..."  style = "width:200px; height: 25px;" required></td>'+
-            '      		 <td><input type="text" name="customerPhone_number" size="10" placeholder="전화 번호..."  style = "width:200px; height: 25px;" required></td>'+
-            '      		 <td><input type="text" name="car_production_date" size="10" placeholder="생산일..."  style = "width:200px; height: 25px;" required></td>'+
-            '      		 <td><input type="text" name="car_weight" size="10" placeholder="바디형식..."  style = "width:200px; height: 25px;" required></td>'+
-            '      		 <td><input type="text" name="memo" size="10" placeholder="메모..."  style = "width:200px; height: 25px;" required></td>' + 
+            '   		 <td style ="vertical-align: middle;"><input type="text" name="customerCustomer_name" size="10" placeholder="고객 이름..."  style = "width:100px; height: 25px;" required></td>'+
+            '   		 <td style ="vertical-align: middle;"><input type="text" name="customerCar_information_number" size="10" placeholder="차대 번호..."  style = "width:200px; height: 25px;" required></td>'+
+            '      		 <td style ="vertical-align: middle;"><input type="text" name="customerCar_number" size="10" placeholder="차량 번호..."  style = "width:100px; height: 25px;" required></td>'+
+            '      		 <td style ="vertical-align: middle;"><input type="text" name="customerCar_characteristic" size="10" placeholder="차종..."  style = "width:200px; height: 25px;" required></td>'+
+            '      		 <td style ="vertical-align: middle;"><input type="text" name="customerPhone_number" size="10" placeholder="전화 번호..."  style = "width:200px; height: 25px;" required></td>'+
+            '      		 <td style ="vertical-align: middle;"><input type="text" name="car_production_date" size="10" placeholder="생산일..."  style = "width:200px; height: 25px;" required></td>'+
+            '      		 <td style ="vertical-align: middle;"><input type="text" name="car_weight" size="10" placeholder="바디형식..."  style = "width:200px; height: 25px;" required></td>'+
             '			<td><button class="button button--winona button--border-thin button--round-s" style = "min-width: 40px; height: 30px" name="delLine">삭제</button></td>'+
             '		</tr>'+
             '	</table>' +

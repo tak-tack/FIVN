@@ -8,38 +8,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>Daesan</title>
   <meta charset="utf-8">
-
-  
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
-  
-
   <link rel="stylesheet" type="text/css" href="./css/SearchBar.css">
 <link href="./css/pushy-buttons.css" rel="stylesheet">
-
 </head>
 
-
 <body>
-
   <div class="d-flex" id="flexbox_list">
-
- 
     <c:import charEncoding="UTF-8" url="/WEB-INF/jsp/view/layout/sidemenu.jsp" />
     <!-- /#sidebar-wrapper -->
-
     <!-- Page Content -->
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" >
 
 			<c:import charEncoding="UTF-8"
 			url="/WEB-INF/jsp/view/layout/header.jsp" />
@@ -49,14 +37,14 @@
 
 							<thead>
 								<tr>
-									<th style="width: 100px;">고객이름</th>
-									<th style="width: 200px;">차대번호</th>
-									<th style="width: 100px;">차량번호</th>
-									<th style="width: 200px;">차종</th>
-									<th style="width: 200px;">전화번호</th>			
-									<th style="width: 200px;">생산일</th>
-									<th style="width: 200px;">바디형식</th>		
-									<th style="width: 200px;">메모</th>		
+									<th style="width: 100px;"></th>
+									<th style="width: 200px;"></th>
+									<th style="width: 100px;"></th>
+									<th style="width: 200px;"></th>
+									<th style="width: 200px;"></th>			
+									<th style="width: 200px;"></th>
+									<th style="width: 200px;"></th>		
+											
 									
 								</tr>
 							</thead>

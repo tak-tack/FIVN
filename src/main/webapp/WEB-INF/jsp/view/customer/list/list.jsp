@@ -22,7 +22,6 @@
 <body>
 <div class="d-flex" id="wrapper">
 <c:import charEncoding="UTF-8" url="/WEB-INF/jsp/view/layout/sidemenu.jsp"/>
-
 <div class="page-content-wrapper">
 
 					<c:import charEncoding="UTF-8"
