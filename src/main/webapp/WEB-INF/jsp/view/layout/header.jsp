@@ -15,10 +15,12 @@
 <link href="css/customer/popup.css" rel="stylesheet">
 </head>
 <body>
+<!-- 
+배너 넣을 예정
 <div style="width: 100%; height: 100px; background-color:  black; text-align: center;">
-<h4 style="font-size: 60px; color: red;">김 성 환 회 장 님 께 서 일 궈 내 신 최 강 대 산</h4>
 
 </div>
+ -->
 <!--  header start  -->
 		<nav
 				class="navbar navbar-expand-lg navbar-light bg-light border-bottom">

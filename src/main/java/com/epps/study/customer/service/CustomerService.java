@@ -11,7 +11,7 @@ public interface CustomerService {
 	
 	Map<String, Object> selectCustomer(CustomerVO customerVO) throws Exception;
 
-	CustomerVO insertCustomer(CustomerVO customerVO) throws Exception;
+	void insertCustomer(CustomerVO customerVO) throws Exception;
 	
 	CustomerVO deleteCustomer(CustomerVO customerVO) throws Exception;
 	

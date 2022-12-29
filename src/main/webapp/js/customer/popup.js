@@ -176,7 +176,7 @@ console.log("idx:"+idx);
             	
             	window.close();
             	
-         	}
+         	},
          	error : function (status)	
          	{
             	alert(status + "error!");

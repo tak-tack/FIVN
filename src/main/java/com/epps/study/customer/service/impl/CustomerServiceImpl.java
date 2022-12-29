@@ -1,6 +1,7 @@
 package com.epps.study.customer.service.impl;
 
 
+import java.util.ArrayList;
 //import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -74,11 +75,20 @@ public class CustomerServiceImpl extends EgovAbstractServiceImpl implements Cust
 	}
 	 
 	 @Override
-	 public CustomerVO insertCustomer(CustomerVO vo) throws Exception {
+	 public void insertCustomer(CustomerVO vo) throws Exception {
 		 
-		 CustomerVO customerVO = customerMapper.insertCustomer(vo);
+	    	
+		/* 
+		//12-29 다중 isnet
+		 List <CustomerVO> list = new ArrayList<CustomerVO>();
+		 Map <String, Object>map = new HashMap<String, Object>();
+		 map.put("list", list);
+		 System.out.println("server에서 map의 크기: "+map.size());
+		 */
+		 customerMapper.insertCustomer(vo);
 		 
-		 return customerVO;
+		 
+		
 	 }
 	 
 	 @Override

@@ -166,26 +166,12 @@ public class CustomerController {
     	System.out.println("insertCustomer");
     	System.out.println("고객 이름 : " + Name);
 
-    	    	
-		model.addAttribute("result", customerService.insertCustomer(customerVO));
-		rttr.addFlashAttribute("customerVO", customerVO);
-    	
-	
-    	Map<String, Object> map = customerService.selectCustomerList(customerVO);
-    	model.addAttribute("resultList", map.get("resultList"));
-    	
-    	
-    	/*PaginationInfo 상속 받아 둔걸 이용한다.*/
-    	
-    	PaginationInfo paginationInfo = new PaginationInfo();
-    	paginationInfo.setRecordCountPerPage(customerVO.getRecordCountPerPage());
-    	paginationInfo.setCurrentPageNo(customerVO.getCurrentPageNo());
-    	paginationInfo.setPageSize(customerVO.getPageSize());
     	
 
-    	paginationInfo.setTotalRecordCount((Integer) map.get("totalRecordCount"));
-    	model.addAttribute("resultList", map.get("resultList"));
-    	model.addAttribute("paginationInfo",  paginationInfo);    
+    	rttr.addFlashAttribute("customerVO", customerVO);
+
+    	customerService.insertCustomer(customerVO);
+
     	
     	}catch (Exception e) {
     		 System.out.println(e.getMessage());
@@ -194,7 +180,7 @@ public class CustomerController {
      		conn.close();
     		}
     	
-		return "/view/customer/list/list";
+		return "/view/main/main";
 	}
 	
 	

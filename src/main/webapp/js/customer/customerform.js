@@ -146,7 +146,7 @@ $(document).on("click","button[name=InsertLine]",function(){
     
  $(document).on("click","button[name=insert]",function() {
 	console.log("cnt:" + cnt);
-	
+	/*
 	for(var i=1; i<=cnt; i++)
 	{
 		    $('form[name=testForm'+i+']').serialize();
@@ -155,7 +155,31 @@ $(document).on("click","button[name=InsertLine]",function(){
         
     $('form[name=testForm'+i+']').submit();
 	}
-	
+	*/
+		for(var i=1; i<=cnt; i++)
+	{
+		var formData = $('form[name=testForm'+i+']').serialize();
+			 $.ajax({
+         	type : "POST",
+         	url : "/insertCustomer.do?allowMultiQueries=true",
+         	data : formData,
+         	success : function (status)
+         	{
+            
+            	//alert("성공");
+            	
+            	//window.close();
+            	
+         	},
+         	error : function (status)	
+         	{
+            	alert("실패");
+       		}
+     			});
+     			
+     		var url = '/list.do';
+            window.open(url, "_self",  '');
+	}
 
 
 });

@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -49,6 +50,8 @@ public class CustomerVO extends PaginationInfo{
 	private int customer_index;
 	
 	private String memo;
+	
+	private List<CustomerVO> customerVoList;
 
 	
 	

@@ -110,6 +110,8 @@
 	</select>
 	
 	<select id="insertCustomer" resultMap="Customer">
+	 
+	
 	INSERT INTO
 	CUSTOMER (
 		CUSTOMER_NAME,
@@ -122,7 +124,9 @@
 			CAR_WEIGHT,
 			MEMO
 			)
-	VALUES	(
+	VALUES	
+
+	(
 		#{customerCustomer_name},
 		#{customerCar_information_number},
 		#{customerCar_number},
@@ -133,6 +137,8 @@
 		#{car_weight},
 		#{memo}
 			)	
+	
+
 	</select>
 	
 	

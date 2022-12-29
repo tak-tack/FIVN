@@ -57,6 +57,7 @@ public class MainController {
     		conn.close();
 }
 
+
         return "/view/main/main";
     }
     
